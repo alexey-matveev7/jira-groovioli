@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title>$i18n.getText('common.words.configure') $!action.getCustomField().getName()</title>
+    <meta content="admin" name="decorator" />
+    <meta content="admin_issues_menu/element_options_section/fields_section" name="admin.active.section">
+    <meta content="view_custom_fields" name="admin.active.tab">
+    #disable_html_escaping()
+    $webResourceManager.requireResourcesForContext("groovioli-resources")
+    <script>
+      AJS.$(document).ready(function(){
+                AJS.$("#groovioli-script-form").on("submit", function() {
+                    AJS.$("#groovioli-script-input").val( AJS.$("#script-textarea").val());
+                });
+            });
+     </script>
+</head>
+
+<body>
+<form id="groovioli-script-form" action="EditGroovioliFieldConfig.jspa" method="POST" class="aui">
+    <h2 class="formtitle">
+        $i18n.getText('common.words.configure') $!action.getCustomField().getName()
+    </h2>
+
+    #if($action.hasAnyErrors())
+        <br/>
+        <div class="aui-message error closeable">
+            <span class="aui-icon icon-error"></span>
+            #foreach($error in $errorMessages)
+                <p>$error</p>
+            #end
+        </div>
+    #end
+
+    <fieldset>
+        <div class="field-group" >
+            <label>Script</label>
+            <input id="groovioli-script-input" type="hidden" name="script"/>
+            <textarea name="script-textarea" id="script-textarea" cols="100" rows="40">$!script</textarea>
+        </div>
+    </fieldset>
+
+    <div id="submitButtons" class="buttons-container">
+        <div class="buttons">
+            <input class="aui-button" type="submit" value="Save" id="Save" name="Save" />
+            <input class="aui-button" type="submit" value="Cancel" id="Cancel" name="Cancel" />
+        </div>
+    </div>
+    
+    <input type="hidden" name="returnUrl" value="$!returnUrl" />
+    <input type="hidden" name="fieldConfigId" value="$!fieldConfigId" />
+    <input type="hidden" name="fieldConfigSchemeId" value="$!fieldConfigSchemeId" />
+    <input type="hidden" name="customFieldId" value="$!customFieldId" />
+    </form>
+</body>
+</html>
