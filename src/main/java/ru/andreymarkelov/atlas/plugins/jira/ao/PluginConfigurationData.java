@@ -13,15 +13,15 @@ public interface PluginConfigurationData extends Entity {
     @StringLength(255)
     String getName();
 
-    void setName(String var1);
+    void setName(String name);
 
     @StringLength(-1)
     String getValue();
 
-    void setValue(String var1);
+    void setValue(String value);
 
     @StringLength(-1)
     String getDefaultValue();
 
-    void setDefaultValue(String var1);
+    void setDefaultValue(String defaultValue);
 }

@@ -21,7 +21,7 @@ public class GroovioliScriptedFieldConfigurationEdit extends AbstractEditConfigu
     }
 
     protected String doExecute() throws Exception {
-        long longFieldConfigId = this. getFieldConfigId();
+        long longFieldConfigId = this.getFieldConfigId();
         if (this.script == null) {
             this.script = groovioliFieldConfigService.getScript(longFieldConfigId);
         } else {

@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>$i18n.getText('common.words.configure') $!action.getCustomField().getName()</title>
+    <title> $!action.getCustomField().getName()</title>
     <meta content="admin" name="decorator" />
     <meta content="admin_issues_menu/element_options_section/fields_section" name="admin.active.section">
     <meta content="view_custom_fields" name="admin.active.tab">
@@ -46,10 +46,7 @@
         </div>
     </div>
     
-    <input type="hidden" name="returnUrl" value="$!returnUrl" />
     <input type="hidden" name="fieldConfigId" value="$!fieldConfigId" />
-    <input type="hidden" name="fieldConfigSchemeId" value="$!fieldConfigSchemeId" />
-    <input type="hidden" name="customFieldId" value="$!customFieldId" />
     </form>
 </body>
 </html>

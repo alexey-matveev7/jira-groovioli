@@ -22,15 +22,15 @@ public class GroovioliFieldConfigServiceImpl implements GroovioliFieldConfigServ
 
     @Override
     public void setScript(long fieldConfigId, String code) {
-        this.setConfigurationValue(getScriptConfigKey(fieldConfigId), code);
+        this.setConfigurationData(getScriptConfigKey(fieldConfigId), code);
     }
 
     @Override
     public String getScript(long fieldConfigId) {
-        return this.getConfigurationValue(getScriptConfigKey(fieldConfigId));
+        return this.getConfigurationData(getScriptConfigKey(fieldConfigId));
     }
 
-    public void setConfigurationValue(String configName, final String configValue) {
+    public void setConfigurationData(String configName, final String configValue) {
         this.ao.executeInTransaction(() -> {
             PluginConfigurationData previousValue;
             if ((previousValue = this.getByConfigKey(configName)) == null) {
@@ -55,7 +55,7 @@ public class GroovioliFieldConfigServiceImpl implements GroovioliFieldConfigServ
     }
 
 
-    public String getConfigurationValue(String configName) {
+    public String getConfigurationData(String configName) {
         PluginConfigurationData v = this.getByConfigKey(configName);
         if (v != null) {
             return v.getValue() != null ? v.getValue() : v.getDefaultValue();
